@@ -21,7 +21,7 @@ app.layout = html.Div([
     dcc.Dropdown(
             id='ycol', 
             value='Running_Time_min',
-            options=[{'label': i, 'value': i} for i in df.columns])
+            options=[{'label': col, 'value': col} for col in df.columns])
 ])
 
 @app.callback(
