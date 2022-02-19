@@ -7,9 +7,10 @@ from vega_datasets import data
 movies = data.movies()
 df = movies[['Production_Budget', 'Running_Time_min', 
              'Major_Genre', 'IMDB_Rating', 'IMDB_Votes', 'US_Gross']].dropna(subset=['Major_Genre'])
-             
-# Setup app and layout/frontend
-app = Dash(__name__,  external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+
+
+
+app = Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
 server = app.server
 
 app.layout = html.Div([
@@ -20,7 +21,7 @@ app.layout = html.Div([
     dcc.Dropdown(
             id='ycol', 
             value='Running_Time_min',
-            options=[{'label': col, 'value': col} for col in df.columns])
+            options=[{'label': i, 'value': i} for i in df.columns])
 ])
 
 @app.callback(
